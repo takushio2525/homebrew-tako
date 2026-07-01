@@ -23,7 +23,7 @@ cask "tako" do
     Claude Code 連携（初回 1 回）:
       claude mcp add --scope user tako -- #{appdir}/tako.app/Contents/MacOS/tako mcp serve
 
-    初回起動時に Gatekeeper の警告が出た場合:
-      システム設定 → プライバシーとセキュリティ → 「tako」のブロック解除 → このまま開く
+    Gatekeeper の警告が出た場合（未署名のため初回のみ必要）:
+      xattr -dr com.apple.quarantine #{appdir}/tako.app
   EOS
 end
