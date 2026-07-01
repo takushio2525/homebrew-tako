@@ -7,7 +7,7 @@ cask "tako" do
   desc "AI-driven terminal for agent-intensive monitoring"
   homepage "https://github.com/takushio2525/tako"
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "tako.app"
 
