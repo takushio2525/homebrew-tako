@@ -1,6 +1,6 @@
 cask "tako" do
-  version "0.6.0"
-  sha256 "33bad2e006231eb95897cc3f151b8d860937286b0554ab980836efdb6b410300"
+  version "0.7.0"
+  sha256 "3b29556950a8dc40953148e0d1666469b31538f59d3ebe77120d92c2553022b1"
 
   url "https://github.com/takushio2525/tako/releases/download/v#{version}/tako-v#{version}-macos-arm64.zip"
   name "tako"
