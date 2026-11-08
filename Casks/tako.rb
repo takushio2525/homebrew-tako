@@ -13,8 +13,16 @@ cask "tako" do
 
   binary "#{appdir}/tako.app/Contents/MacOS/tako"
 
+  # brew uninstall --zap で消す置き場。data dir は tako-core::paths::MACOS_DATA_DIR_REL と同じ
+  # （正本は takushio2525/tako の distribution/homebrew-cask-draft.rb。番犬が突き合わせる。#2788）
   zap trash: [
-    "~/Library/Application Support/dev.takushio.tako",
+    "~/Library/Application Support/tako",
+    "~/Library/Caches/dev.takushio.tako",
+    "~/Library/HTTPStorages/dev.takushio.tako",
+    "~/Library/HTTPStorages/dev.takushio.tako.binarycookies",
+    "~/Library/Preferences/dev.takushio.tako.plist",
+    "~/Library/Saved Application State/dev.takushio.tako.savedState",
+    "~/Library/WebKit/dev.takushio.tako",
   ]
 
   caveats <<~EOS
@@ -22,6 +30,8 @@ cask "tako" do
 
     Claude Code 連携（初回 1 回）:
       claude mcp add --scope user tako -- #{appdir}/tako.app/Contents/MacOS/tako mcp serve
+
+    tako を消すときは、先に tako setup undo で連携（MCP 登録など）を外してください（データは残ります）。
 
     Gatekeeper の警告が出た場合（未署名のため初回のみ必要）:
       xattr -dr com.apple.quarantine #{appdir}/tako.app
